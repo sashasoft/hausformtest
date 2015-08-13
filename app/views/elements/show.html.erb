@@ -1,0 +1,11 @@
+<p>
+  <strong>Название:</strong>
+  <%= @element.name %>
+</p>
+
+<p>
+  <strong>Цена:</strong>
+  <%= @element.price %>
+</p>
+
+<%= link_to 'Изменить', edit_element_path(@element) %>

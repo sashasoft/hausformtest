@@ -1,0 +1,20 @@
+<%= form_for @baum do |f| %>
+ 
+  <p>
+    <strong><%= @baum.name %></strong>
+  </p>
+ 
+ <p>
+    Цена:<%= f.text_field :price %>
+  </p>
+  
+   
+ <p>
+    Название:<%= f.text_field :name %>
+  </p>
+  
+    
+  <p>
+    <%= submit_tag "Сохранить" %>
+  </p>
+<% end %>
