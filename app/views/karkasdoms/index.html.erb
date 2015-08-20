@@ -1,0 +1,37 @@
+<h1>Все составляющие проекта Каркасный Дом</h1>
+<table class="table table-striped table-hover">
+  <tr>
+    <th><strong>Название</strong></th>
+    <th>Цена за м<sup>2</sup> или %</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+  <% @karkasdoms.each do |karkasdom| %>
+    <tr>
+      <td><%= karkasdom.name %></td>
+      <td><%= karkasdom.price %> </td>
+      <% if can? :read, Karkasdom %>
+       <td><%= link_to 'Подробно..', karkasdom, class: "btn btn-xs btn-info" %></td> 
+      <% end %>
+      <% if can? :update, Karkasdom %>
+         <td><%= link_to 'Редактировать', edit_karkasdom_path(karkasdom), class: "btn btn-xs btn-warning" %></td>
+      <% end %>
+      <% if can? :destroy, Karkasdom %>
+         <td><%= link_to 'Удалить!', karkasdom_path(karkasdom), class: "btn btn-xs btn-danger", 
+            method: :delete,
+            data: { confirm: 'Вы уверены?' } %></td> 
+      <% end %>
+    
+          
+     
+    </tr>
+  <% end %>
+</table>
+<br>
+<%= link_to 'Добавить новый елемент проекта', new_karkasdom_path, class: "btn btn-sm btn-success" %>
+<%= link_to 'Перейти к форме', karkasdoms_form_path, class: "btn btn-xs btn-primary" %>
+<br>
+<br>
+<br>

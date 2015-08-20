@@ -1,0 +1,29 @@
+<%= form_for(@karkasdom) do |f| %>
+  <% if @karkasdom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@karkasdom.errors.count, "error") %> prohibited this karkasdom from being saved:</h2>
+
+      <ul>
+      <% @karkasdom.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Название:<%= f.text_field :name %>
+  </div>
+  <div class="field">
+    Метка:<%= f.text_field :label %>
+  </div>
+  <div class="field">
+    Цена:<%= f.text_field :price %>
+  </div>
+  
+
+
+  <div class="actions">
+    <%= submit_tag "Сохранить" %>
+  </div>
+<% end %>

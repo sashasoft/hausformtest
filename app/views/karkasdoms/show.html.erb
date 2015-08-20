@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Название:</strong>
+  <%= @karkasdom.name %>
+</p>
+
+<p>
+  <strong>Цена:</strong>
+  <%= @karkasdom.price %>
+</p>
+
+<p>
+  <strong>Метка:</strong>
+  <%= @karkasdom.label %>
+</p>
+<%= link_to 'Edit', edit_karkasdom_path(@karkasdom) %> |
+<%= link_to 'Back', karkasdoms_path %>

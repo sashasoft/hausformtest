@@ -12,6 +12,8 @@ class Ability
         can :sum, Element
         can :form, Baum
         can :sum, Baum
+        can :form, Karkasdom
+        can :sum, Karkasdom
       end
     #
     # The first argument to `can` is the action you are giving the user

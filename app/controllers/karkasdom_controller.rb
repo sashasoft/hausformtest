@@ -1,0 +1,3 @@
+class KarkasdomController < ApplicationController
+  
+end
