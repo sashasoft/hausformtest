@@ -3,7 +3,7 @@
   <tr>
     <th><strong>Название</strong></th>
     <th>Цена за м<sup>2</sup> или %</th>
-    <th></th>
+    <th>Метка</th>
     <th></th>
     <th></th>
   </tr>
@@ -12,6 +12,7 @@
     <tr>
       <td><%= karkasdom.name %></td>
       <td><%= karkasdom.price %> </td>
+      <td><%= karkasdom.label %> </td>
       <% if can? :read, Karkasdom %>
        <td><%= link_to 'Подробно..', karkasdom, class: "btn btn-xs btn-info" %></td> 
       <% end %>
