@@ -42,6 +42,13 @@
   <span class="caption">Акционная наценка</span> <%= check_box_tag 'akcionka' %><br>
   <span class="caption">Региональный проект</span> <%= check_box_tag 'regional' %><br><br>
     
+    
+    <p class="showdopdiw btn btn-xs btn-info">Открыть дополнительные поля</p>
+    <br>
+    <%= render 'dopform' %>
+   <br><br><br>
+    
+    
   
   <%= submit_tag "Подсчитать стоимость", class: "btn btn-xs btn-info" %>
   <%= link_to 'Очистить форму', baums_form_path, class: "btn btn-xs btn-warning" %><br><br>
