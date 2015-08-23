@@ -59,8 +59,13 @@ class ElementsController < ApplicationController
     
     if params[:plfund].to_f > 0
       temp = Element.find_by(label: :plfund)
-      @sum = @sum + temp.price * params[:plfund].to_f;
-      @hh.push({"name" => temp.name.to_s, "value" => temp.price * params[:plfund].to_f})
+      if params[:fundament1400]
+         @sum = @sum + temp.price * params[:plfund].to_f * Element.find_by(label: :fundament1400).price.to_f;
+         @hh.push({"name" => Element.find_by(label: :fundament1400).name.to_s, "value" => temp.price * params[:plfund].to_f*Element.find_by(label: :fundament1400).price.to_f})
+      else
+        @sum = @sum + temp.price * params[:plfund].to_f;
+        @hh.push({"name" => temp.name.to_s, "value" => temp.price * params[:plfund].to_f})
+      end
     end
         
     
@@ -94,8 +99,17 @@ class ElementsController < ApplicationController
       end
       if params[:shtukat]
         temp = Element.find_by(label: :shtukat)
-        @sum = @sum + temp.price * params[:plsten].to_f
-        @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f})
+        
+        if params[:koroedsvetlyi].to_f > 0
+          @sum = @sum + temp.price * params[:plsten].to_f * Element.find_by(label: :koroedsvetlyi).price
+          @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f*Element.find_by(label: :koroedsvetlyi).price})
+        elsif params[:koroedarkii].to_f > 0
+          @sum = @sum + temp.price * params[:plsten].to_f * Element.find_by(label: :koroedarkii).price
+          @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f*Element.find_by(label: :koroedarkii).price})
+        else
+          @sum = @sum + temp.price * params[:plsten].to_f
+          @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f})
+        end
       end
       if params[:vagonka]
         temp = Element.find_by(label: :vagonka)
@@ -234,9 +248,139 @@ class ElementsController < ApplicationController
       @hh.push({"name" => temp.name, "value" => temp.price})
     end
       
+    #########################################################
+    #########################################################
+    #####DOPFORMA############################################
       
+    if params[:stropferma].to_f > 0 
+      temp = Element.find_by(label: :stropferma)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:stropferma].to_f})
+    end
+    
+    if params[:stenpanel].to_f > 0 
+      temp = Element.find_by(label: :stenpanel)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:stenpanel].to_f})
+    end
+    
+    if params[:fermaperekrytia].to_f > 0 
+      temp = Element.find_by(label: :fermaperekrytia)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:fermaperekrytia].to_f})
+    end
+    
+    if params[:karniznaiapodshivka].to_f > 0 
+      temp = Element.find_by(label: :karniznaiapodshivka)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:karniznaiapodshivka].to_f})
+    end
+    
+    ###vodostok#####
+    if params[:vodostokkrovlia].to_f > 0  && params[:vodostokvysota].to_f > 0 
+      temp = Element.find_by(label: :vodostokkrovlia)
+      temp1 = Element.find_by(label: :vodostokvysota)
+      @sum = @sum + temp.price*params[:vodostokkrovlia].to_f
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:vodostokkrovlia].to_f})
+      @sum = @sum + temp1.price*params[:vodostokvysota].to_f
+      @hh.push({"name" => temp1.name, "value" => temp1.price*params[:vodostokvysota].to_f})
+    end
+    
+    if params[:otmostka800].to_f > 0
+      temp = Element.find_by(label: :otmostka800)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:otmostka800].to_f})
+    end
+    if params[:otmostka1000].to_f > 0
+      temp = Element.find_by(label: :otmostka1000)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:otmostka1000].to_f})
+    end
+    if params[:podokonniki].to_f > 0
+      temp = Element.find_by(label: :podokonniki)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:podokonniki].to_f})
+    end
+    
+    if params[:moskitka].to_f > 0
+      temp = Element.find_by(label: :moskitka)
+      @sum = @sum + temp.price * params[:moskitka].to_f
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:moskitka].to_f})
+    end
+    if params[:otliv].to_f > 0
+      temp = Element.find_by(label: :otliv)
+      @sum = @sum + temp.price * params[:otliv].to_f
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:otliv].to_f})
+    end
+    
+    if params[:stupenki].to_f > 0
+      temp = Element.find_by(label: :stupenki)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price})
+    end
+    if params[:naves].to_f > 0
+      temp = Element.find_by(label: :naves)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price})
+    end
     
     
+    if params[:tsokol].to_f > 0
+      if params[:tsokolklinker]
+        temp = Element.find_by(label: :tsokolklinker)
+        @sum = @sum + temp.price * params[:tsokol].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:tsokol].to_f})
+      end
+      if params[:tsokolpeschanik]
+        temp = Element.find_by(label: :tsokolpeschanik)
+        @sum = @sum + temp.price * params[:tsokol].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:tsokol].to_f})
+      end
+      if params[:tsokolplitka]
+        temp = Element.find_by(label: :tsokolplitka)
+        @sum = @sum + temp.price * params[:tsokol].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:tsokol].to_f})
+      end
+    end
+    
+    if params[:mezhkom].to_f > 0
+        temp = Element.find_by(label: :mezhkom)
+        @sum = @sum + temp.price * params[:mezhkom].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:mezhkom].to_f})
+    end
+    
+    if params[:lestnica].to_f > 0
+      if params[:v1]
+        temp = Element.find_by(label: :v1)
+        @sum = @sum + temp.price * params[:lestnica].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:lestnica].to_f})
+      end
+      if params[:v2]
+        temp = Element.find_by(label: :v2)
+        @sum = @sum + temp.price * params[:lestnica].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:lestnica].to_f})
+      end
+      if params[:v3]
+        temp = Element.find_by(label: :v3)
+        @sum = @sum + temp.price * params[:lestnica].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:lestnica].to_f})
+      end
+    end
+    
+    if params[:polovadoska].to_f > 0
+        temp = Element.find_by(label: :polovadoska)
+        @sum = @sum + temp.price * params[:polovadoska].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:polovadoska].to_f})
+    end
+    if params[:terasnadoska].to_f > 0
+        temp = Element.find_by(label: :terasnadoska)
+        @sum = @sum + temp.price * params[:terasnadoska].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:terasnadoska].to_f})
+    end
+    
+    ###############END#########################################
+    ###########################################################
+    ###########################################################
     #marketing
     if !(@sum == 0)
       @sum = @sum + Element.find_by(label: :marketing).price
