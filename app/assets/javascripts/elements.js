@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  $('.dropdown-toggle').dropdown();
+  
   $("p.showdopdiw").click(function(){
    var text = $(this).text();
    if (text == "Открыть дополнительные поля"){
