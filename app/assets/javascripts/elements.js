@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on("page:change", function(){
   $('.dropdown-toggle').dropdown();
   
   $("p.showdopdiw").click(function(){

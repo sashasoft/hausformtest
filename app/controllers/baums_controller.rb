@@ -70,24 +70,29 @@ class BaumsController < ApplicationController
     #steny
     if params[:plsten].to_f > 0
       if params[:dikii]
+        if params[:suhoiles].to_f > 0
+          k = Baum.find_by(label: :suhoiles).price.to_f
+        else
+          k = 1
+        end
         if params[:dikii200]
           temp = Baum.find_by(label: :dikii200)
-          @sum = @sum + temp.price * params[:plsten].to_f
+          @sum = @sum + temp.price * params[:plsten].to_f * k
           @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f})
         end
         if params[:dikii240]
           temp = Baum.find_by(label: :dikii240)
-          @sum = @sum + temp.price * params[:plsten].to_f
+          @sum = @sum + temp.price * params[:plsten].to_f * k
           @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f})
         end
         if params[:dikii260]
           temp = Baum.find_by(label: :dikii260)
-          @sum = @sum + temp.price * params[:plsten].to_f
+          @sum = @sum + temp.price * params[:plsten].to_f * k
           @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f})
         end
         if params[:dikii300]
           temp = Baum.find_by(label: :dikii300)
-          @sum = @sum + temp.price * params[:plsten].to_f
+          @sum = @sum + temp.price * params[:plsten].to_f * k
           @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f})
         end
       end
@@ -196,6 +201,24 @@ class BaumsController < ApplicationController
         @hh.push({"name" => temp.name, "value" => temp.price * params[:plkrov].to_f})
       end
     end
+    
+    ##################
+    ##################
+    
+    if params[:karniz].to_f > 0
+      temp = Baum.find_by(label: :karniz)
+      @sum = @sum + temp.price * params[:karniz].to_f
+      @hh.push({"name" => temp.name, "value" => temp.price * params[:karniz].to_f})
+    end
+    
+    if params[:vysotadoma].to_f > 0 && params[:perimetrkrovli].to_f > 0
+    end
+    
+    ##################
+    ##################
+    
+    
+    
     
     
     #marketing
