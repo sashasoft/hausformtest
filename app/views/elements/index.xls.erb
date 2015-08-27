@@ -10,12 +10,14 @@
         <Cell><Data ss:Type="String">ID</Data></Cell>
         <Cell><Data ss:Type="String">Name</Data></Cell>
         <Cell><Data ss:Type="String">Price</Data></Cell>
+        <Cell><Data ss:Type="String">Label</Data></Cell>
       </Row>
     <% @elements.each do |element| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= element.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= element.name %></Data></Cell>
         <Cell><Data ss:Type="String"><%= element.price %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= element.label %></Data></Cell>
       </Row>
     <% end %>
     </Table>

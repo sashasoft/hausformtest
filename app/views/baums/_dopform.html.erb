@@ -4,36 +4,35 @@
   Карнизная подшивка <%= number_field_tag 'karniz'%> м.пог.<br><br>
  <span class="caption">Водосточная система</span><br>
   Периметр кровли <%= number_field_tag 'perimetrkrovli'%> м.<br>
-  Высота здания <%= number_field_tag 'vysotadoma'%> м<br>
+  Высота здания <%= number_field_tag 'vysotadoma'%> м<br><br>
 
-  Окна <%= number_field_tag ''%> м<sup>2</sup><br><br>
-  Маскитная сетка <%= number_field_tag ''%> м<sup>2</sup><br><br>
+  Окна <%= number_field_tag 'okna'%> м<sup>2</sup><br><br>
+  Мoскитная сетка <%= number_field_tag 'moskitka'%> м<sup>2</sup><br><br>
 
-  Дверь наружная <%= check_box_tag '' %><br><br>
-  Фундамент 1200 мм. <%= check_box_tag '' %><br><br>
-  Фундамент 1400 мм.<%= check_box_tag '' %><br><br>
+  Дверь наружная <%= check_box_tag 'dveri' %><br><br>
+  Фундамент 1200 мм. <%= check_box_tag 'fundament1200' %><br><br>
+  Фундамент 1400 мм.<%= check_box_tag 'fundament1400' %><br><br>
 
-  Отмостка 800 мм. <%= number_field_tag ''%> м.пог.<br><br>
-  Отмостка 1000 мм. <%= number_field_tag ''%> м.пог.<br><br>
-  Подоконники <%= number_field_tag ''%> м.пог.<br><br>
+  Отмостка 800 мм. <%= number_field_tag 'otmostka800'%> м.пог.<br><br>
+  Отмостка 1000 мм. <%= number_field_tag 'otmostka1000'%> м.пог.<br><br>
+  Подоконники <%= number_field_tag 'podokonniki'%> м.пог.<br><br>
   
-  Маскитная сетка <%= number_field_tag ''%> шт.<br><br>
-  Отливы под подоконник <%= number_field_tag ''%> шт.<br><br>
-  Ступеньки в дом (площадка + 2 ступеньки) <%= check_box_tag '' %><br><br>
-  Навес над ступеньками (двускатный) <%= check_box_tag '' %><br><br>
+  Москитная сетка <%= number_field_tag 'moskitka2'%> (ко-во окон).<br><br>
+  Отливы под подоконник <%= number_field_tag 'otliv'%> шт.<br><br>
+  Ступеньки в дом (площадка + 2 ступеньки) <%= check_box_tag 'stupenki' %><br><br>
+  Навес над ступеньками (двускатный) <%= check_box_tag 'naves' %><br><br>
 
      
   <span class="caption">Отделка цоколя</span><br>
-  Клинкер <%= number_field_tag ''%> м<sup>2</sup><br>
-  Камень пещанник	<%= number_field_tag ''%> м<sup>2</sup><br>
-  Плитка керамическая <%= number_field_tag ''%> м<sup>2</sup><br><br>
+  Площадь цоколя: <%= number_field_tag 'tsokol'%> м<sup>2</sup><br>
+  Тип отделки: Клинкер <%= check_box_tag 'tsokolklinker' %>, 
+  Камень пещанник	<%= check_box_tag 'tsokolpeschanik' %>, Плитка керамическая <%= check_box_tag 'tsokolplitka' %><br><br>
   
-  Лакировка пола <%= number_field_tag ''%> м<sup>2</sup><br><br>
-  Лакировка потолочной вагонки <%= number_field_tag ''%> м<sup>2</sup><br><br>
-  Межкомнатные двери (только установка) <%= number_field_tag ''%> к-во<br><br>
+  Лакировка пола <%= number_field_tag 'lakpol'%> м<sup>2</sup><br><br>
+  Лакировка потолочной вагонки <%= number_field_tag 'lakpotolok'%> м<sup>2</sup><br><br>
+  Межкомнатные двери (только установка) <%= number_field_tag 'mezhkom'%> к-во<br><br>
 
   <span class="caption">Деревянная лестница</span><br>
-  Вариант1 <%= number_field_tag ''%> м.пог.<br>
-  Вариант2 <%= number_field_tag ''%> м.пог.<br>
-  Вариант3 <%= number_field_tag ''%> м.пог.<br><br>
+  Ко-во погонных метров: <%= number_field_tag 'lestnica'%><br>
+  Тип отделки: Вариант1 <%= check_box_tag 'v1' %>, Вариант2 <%= check_box_tag 'v2' %>, Вариант3 <%= check_box_tag 'v3' %><br><br>
 </div>

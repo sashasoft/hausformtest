@@ -10,12 +10,14 @@
         <Cell><Data ss:Type="String">ID</Data></Cell>
         <Cell><Data ss:Type="String">Name</Data></Cell>
         <Cell><Data ss:Type="String">Price</Data></Cell>
+        <Cell><Data ss:Type="String">Label</Data></Cell>
       </Row>
     <% @baums.each do |baum| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= baum.id %></Data></Cell>
         <Cell><Data ss:Type="String"><%= baum.name %></Data></Cell>
         <Cell><Data ss:Type="String"><%= baum.price %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= baum.label %></Data></Cell>
       </Row>
     <% end %>
     </Table>
