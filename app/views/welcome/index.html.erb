@@ -1,8 +1,12 @@
-<%= image_tag("logo.png", alt: "ЕвроХаус", usemap: "#map")%>
-
-<% if can? :form, Element %>
-  <MAP name="map">
-    <AREA shape="rect" coords="0, 0, 400, 450" href="elements/form">
-    <AREA shape="rect" coords="500, 0, 890, 450" href="baums/form">
-  </MAP>   
-<% end %>
+<div class="containerlogo">
+  <%= image_tag("imgo.jpeg", alt: "ЕвроХаус", usemap: "#map")%>
+  <% if can? :form, Element %>
+    <MAP name="map">
+      <AREA shape="rect" coords="35, 150, 385, 470" href="elements/form">
+      <AREA shape="rect" coords="440, 150, 890, 470" href="baums/form">
+      <AREA shape="rect" coords="35, 540, 385, 750" href="karkasdoms/form">
+      <AREA shape="rect" coords="60, 470, 360, 505" href="http://www.euro-house.kiev.ua">
+      <AREA shape="rect" coords="440, 470,890, 505" href="http://smerekova-hata.kiev.ua/">
+    </MAP>   
+  <% end %>
+</div>
