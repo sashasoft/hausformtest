@@ -57,8 +57,8 @@
     <%= render 'dopform' %>
    <br><br><br>
   <%= submit_tag "Подсчитать стоимость", class: "btn btn-xs btn-info" %>
-  <%= link_to 'Очистить форму', elements_form_path, class: "btn btn-xs btn-warning" %><br><br>
-    <% if can? :update, Element %>
-      <%= link_to 'Перейти в раздел редактирования', elements_path, class: "btn btn-xs btn-info" %>
+  <%= link_to 'Очистить форму', karkasdoms_form_path, class: "btn btn-xs btn-warning" %><br><br>
+    <% if can? :update, Karkasdom %>
+      <%= link_to 'Перейти в раздел редактирования', karkasdoms_path, class: "btn btn-xs btn-info" %>
     <% end %>
 <% end %>
