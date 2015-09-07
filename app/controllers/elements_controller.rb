@@ -176,6 +176,22 @@ class ElementsController < ApplicationController
       temp = Element.find_by(label: :perekosb)
       @sum = @sum + temp.price * params[:plper].to_f
       @hh.push({"name" => temp.name, "value" => temp.price * params[:plper].to_f})
+      
+      if (params[:polovadoska].to_f > 0 && params[:fermaperekrytia].to_f > 0)
+        temp1 = Element.find_by(label: :polovadoska)
+        temp2 = Element.find_by(label: :fermaperekrytia)
+        @sum = @sum * ((temp1.price.to_f + temp2.price.to_f)-1)
+        @hh.push({"name" => temp1.name, "value" => temp1.price.to_f})
+        @hh.push({"name" => temp2.name, "value" => temp2.price.to_f})
+      elsif params[:polovadoska].to_f > 0
+            temp = Element.find_by(label: :polovadoska)
+            @sum = @sum + temp.price * params[:plper].to_f
+            @hh.push({"name" => temp.name, "value" => temp.price*params[:polovadoska].to_f})
+          elsif params[:fermaperekrytia].to_f > 0 
+                temp = Element.find_by(label: :fermaperekrytia)
+                @sum = @sum + temp.price
+                @hh.push({"name" => temp.name, "value" => temp.price*params[:fermaperekrytia].to_f})
+              end
       if params[:utiplenieper]
         temp = Element.find_by(label: :utiplenieper)
         @sum = @sum + temp.price * params[:plper].to_f
@@ -264,11 +280,7 @@ class ElementsController < ApplicationController
       @hh.push({"name" => temp.name, "value" => temp.price*params[:stenpanel].to_f})
     end
     
-    if params[:fermaperekrytia].to_f > 0 
-      temp = Element.find_by(label: :fermaperekrytia)
-      @sum = @sum + temp.price
-      @hh.push({"name" => temp.name, "value" => temp.price*params[:fermaperekrytia].to_f})
-    end
+    
     
     if params[:karniznaiapodshivka].to_f > 0 
       temp = Element.find_by(label: :karniznaiapodshivka)
@@ -367,15 +379,16 @@ class ElementsController < ApplicationController
       end
     end
     
-    if params[:polovadoska].to_f > 0
-        temp = Element.find_by(label: :polovadoska)
-        @sum = @sum + temp.price * params[:polovadoska].to_f
-        @hh.push({"name" => temp.name, "value" => temp.price*params[:polovadoska].to_f})
+    
+    if params[:terrasa].to_f > 0
+        temp = Element.find_by(label: :terrasa)
+        @sum = @sum + temp.price * params[:terrasa].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:terrasa].to_f})
     end
     if params[:terasnadoska].to_f > 0
         temp = Element.find_by(label: :terasnadoska)
-        @sum = @sum + temp.price * params[:terasnadoska].to_f
-        @hh.push({"name" => temp.name, "value" => temp.price*params[:terasnadoska].to_f})
+        @sum = @sum + temp.price * params[:terrasa].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:terrasa].to_f})
     end
     
     ###############END#########################################

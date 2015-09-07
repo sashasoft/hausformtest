@@ -4,12 +4,14 @@
 <%= form_tag("sum", method: :get, class: "form-horizontal", role: "form") do %>
   Архитектурный проект <%= check_box_tag 'archproject' %><br><br>
   <span class="caption">Фундамент</span><br>
-  Площадь <%= number_field_tag 'plfund' %> м<sup>2</sup><br><br>
+  Площадь <%= number_field_tag 'plfund' %> м<sup>2</sup><br>
+  Фундамент 1400 мм. <%= check_box_tag 'fundament1400' %><br><br>
   
   <span class="caption">Тип стен</span><br>
   Площадь <%= number_field_tag 'plsten' %> м<sup>2</sup><br>
   СИП160 <%= check_box_tag 'sip160' %>, Каркас150 <%= check_box_tag 'karkas150' %><br>
-  Наружная отделка: Сайдинг <%= check_box_tag 'saiding' %>, БлокХаус <%= check_box_tag 'blockhaus' %>, Штукатурка <%= check_box_tag 'shtukat' %><br>
+  Наружная отделка: Сайдинг <%= check_box_tag 'saiding' %>, БлокХаус <%= check_box_tag 'blockhaus' %> <br> 
+  Штукатурка <%= check_box_tag 'shtukat' %> (Цвет светлый <%= check_box_tag 'koroedsvetlyi' %>, Цвет яркий <%= check_box_tag 'koroedarkii' %>)<br>
   Внутренняя отделка: Вагонка <%= check_box_tag 'vagonka' %>, Гипсокартон <%= check_box_tag 'gips' %><br>
   Утепление <%= check_box_tag 'utiplenie' %> (только при каркасном типе стен!!!)<br><br>
   
@@ -26,12 +28,19 @@
   
   <span class="caption">Перекрытие</span><br>
   Площадь <%= number_field_tag 'plper' %> м<sup>2</sup><br>
+  Половая доска (замена OSB) <%= check_box_tag 'polovadoska'%> <br>
+  Фермы перекрытия с креплениями  MiTek <%= check_box_tag 'fermaperekrytia'%> <br>
   Утепление <%= check_box_tag 'utiplenieper' %><br><br>
   
   <span class="caption">Кровля</span><br>
   Площадь <%= number_field_tag 'plkrov' %> м<sup>2</sup><br>
   Тип кровли: Битумная <%= check_box_tag 'bitumkrov' %>, Металлочерепица <%= check_box_tag 'metkrov' %><br>
-  Утепление <%= check_box_tag 'utipleniekrov' %><br><br>
+  Утепление <%= check_box_tag 'utipleniekrov' %>, Карнизная подшивка <%= number_field_tag 'karniznaiapodshivka'%> м.пог.<br>
+  Стропильная ферма с креплениями MiTek <%= check_box_tag 'stropferma'%> м<sup>2</sup><br><br>
+  
+  <span class="caption">Водосточная система</span><br>
+  Горизонтальная <%= number_field_tag 'vodostokkrovlia'%> м.пог.<br>
+  Вертикальная <%= number_field_tag 'vodostokvysota'%> м.пог.<br><br>
   
   <span class="caption">Инженерия</span><br>
   Электрика <%= check_box_tag 'elektrik' %><br>
@@ -40,9 +49,12 @@
   Канализация <%= check_box_tag 'kanalis' %><br><br>
   
   <span class="caption">Проемы</span><br>
-  Входная дверь <%= check_box_tag 'dver' %><br>
-  Окна, площадь <%= number_field_tag 'plokna'%> м<sup>2</sup><br>
-  <br>
+  Входная дверь <%= check_box_tag 'dver' %><br><br>
+  Окна, площадь <%= number_field_tag 'plokna'%> м<sup>2</sup><br><br>
+  Подоконники <%= number_field_tag 'podokonniki'%> м.пог.<br><br>
+  
+  Москитная сетка <%= number_field_tag 'moskitka'%> шт.<br><br>
+  Отливы под подоконник <%= number_field_tag 'otliv'%> шт.<br><br>
   
   
   
