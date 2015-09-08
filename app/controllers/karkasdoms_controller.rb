@@ -55,6 +55,9 @@ class KarkasdomsController < ApplicationController
       if params[:fundament1400]
          @sum = @sum + temp.price * params[:plfund].to_f * Karkasdom.find_by(label: :fundament1400).price.to_f;
          @hh.push({"name" => Karkasdom.find_by(label: :fundament1400).name.to_s, "value" => temp.price * params[:plfund].to_f*Karkasdom.find_by(label: :fundament1400).price.to_f})
+         elsif params[:fundament1200]
+         @sum = @sum + temp.price * params[:plfund].to_f * Karkasdom.find_by(label: :fundament1200).price.to_f;
+         @hh.push({"name" => Karkasdom.find_by(label: :fundament1200).name.to_s, "value" => temp.price * params[:plfund].to_f*Karkasdom.find_by(label: :fundament1200).price.to_f})
       else
         @sum = @sum + temp.price * params[:plfund].to_f;
         @hh.push({"name" => temp.name.to_s, "value" => temp.price * params[:plfund].to_f})
@@ -114,6 +117,11 @@ class KarkasdomsController < ApplicationController
         @sum = @sum + temp.price * params[:plsten].to_f
         @hh.push({"name" => temp.name, "value" => temp.price * params[:plsten].to_f})
       end
+      if params[:osbstenvnutri].to_f > 0
+        temp = Karkasdom.find_by(label: :osbstenvnutri)
+        @sum = @sum + temp.price * params[:osbstenvnutri].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:osbstenvnutri].to_f})
+      end
     end
     
        
@@ -145,6 +153,16 @@ class KarkasdomsController < ApplicationController
         temp = Karkasdom.find_by(label: :utiplenie100)
         @sum = @sum + temp.price * params[:plvnper].to_f
         @hh.push({"name" => temp.name, "value" => temp.price * params[:plvnper].to_f})
+      end
+      if params[:osbperegorodok2].to_f > 0
+        temp = Karkasdom.find_by(label: :osbperegorodok2)
+        @sum = @sum + temp.price * params[:plvnper].to_f*2
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:plvnper]*2.to_f})
+      end
+      if params[:osbperegorodok1].to_f > 0
+          temp = Karkasdom.find_by(label: :osbperegorodok1)
+          @sum = @sum + temp.price * params[:plvnper].to_f
+          @hh.push({"name" => temp.name, "value" => temp.price*params[:plvnper].to_f})
       end
     end
     
@@ -216,6 +234,21 @@ class KarkasdomsController < ApplicationController
       @sum = @sum + temp.price * params[:plokna].to_f
       @hh.push({"name" => temp.name, "value" => temp.price * params[:plokna].to_f})
     end
+    if params[:podokonniki].to_f > 0
+      temp = Karkasdom.find_by(label: :podokonniki)
+      @sum = @sum + temp.price
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:podokonniki].to_f})
+    end
+    if params[:moskitka].to_f > 0
+      temp = Karkasdom.find_by(label: :moskitka)
+      @sum = @sum + temp.price * params[:moskitka].to_f
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:moskitka].to_f})
+    end
+    if params[:otliv].to_f > 0
+      temp = Karkasdom.find_by(label: :otliv)
+      @sum = @sum + temp.price * params[:otliv].to_f
+      @hh.push({"name" => temp.name, "value" => temp.price*params[:otliv].to_f})
+    end
     
     
     
@@ -271,22 +304,7 @@ class KarkasdomsController < ApplicationController
       @sum = @sum + temp.price
       @hh.push({"name" => temp.name, "value" => temp.price*params[:otmostka1000].to_f})
     end
-    if params[:podokonniki].to_f > 0
-      temp = Karkasdom.find_by(label: :podokonniki)
-      @sum = @sum + temp.price
-      @hh.push({"name" => temp.name, "value" => temp.price*params[:podokonniki].to_f})
-    end
     
-    if params[:moskitka].to_f > 0
-      temp = Karkasdom.find_by(label: :moskitka)
-      @sum = @sum + temp.price * params[:moskitka].to_f
-      @hh.push({"name" => temp.name, "value" => temp.price*params[:moskitka].to_f})
-    end
-    if params[:otliv].to_f > 0
-      temp = Karkasdom.find_by(label: :otliv)
-      @sum = @sum + temp.price * params[:otliv].to_f
-      @hh.push({"name" => temp.name, "value" => temp.price*params[:otliv].to_f})
-    end
     
     if params[:stupenki].to_f > 0
       temp = Karkasdom.find_by(label: :stupenki)
@@ -318,22 +336,8 @@ class KarkasdomsController < ApplicationController
       @hh.push({"name" => temp.name, "value" => temp.price*params[:lestnica].to_f})
     end
     
-    if params[:osbstenvnutri].to_f > 0
-        temp = Karkasdom.find_by(label: :osbstenvnutri)
-        @sum = @sum + temp.price * params[:osbstenvnutri].to_f
-        @hh.push({"name" => temp.name, "value" => temp.price*params[:osbstenvnutri].to_f})
-    end
-    if params[:osbperegorodok2].to_f > 0
-        temp = Karkasdom.find_by(label: :osbperegorodok2)
-        @sum = @sum + temp.price * params[:osbperegorodok2].to_f
-        @hh.push({"name" => temp.name, "value" => temp.price*params[:osbperegorodok2].to_f})
-    end
-    if params[:osbperegorodok1].to_f > 0
-        temp = Karkasdom.find_by(label: :osbperegorodok1)
-        @sum = @sum + temp.price * params[:osbperegorodok1].to_f
-        @hh.push({"name" => temp.name, "value" => temp.price*params[:osbperegorodok1].to_f})
-    end
     
+       
     ###############END#########################################
     ###########################################################
     ###########################################################

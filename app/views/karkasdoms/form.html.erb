@@ -4,20 +4,26 @@
 <%= form_tag("sum", method: :get, class: "form-horizontal", role: "form") do %>
   Архитектурный проект <%= check_box_tag 'archproject' %><br><br>
   <span class="caption">Фундамент</span><br>
-  Площадь <%= number_field_tag 'plfund' %> м<sup>2</sup><br><br>
+  Площадь <%= number_field_tag 'plfund' %> м<sup>2</sup><br>
+  Фундамент 1200 мм. <%= check_box_tag 'fundament1200' %><br>
+  Фундамент 1400 мм. <%= check_box_tag 'fundament1400' %><br><br>
   
   <span class="caption">Тип стен</span><br>
   Площадь <%= number_field_tag 'plsten' %> м<sup>2</sup><br>
   СИП160 <%= check_box_tag 'sip160' %>, Каркас150 <%= check_box_tag 'karkas150' %><br>
-  Наружная отделка: Сайдинг <%= check_box_tag 'saiding' %>, БлокХаус <%= check_box_tag 'blockhaus' %>, Штукатурка <%= check_box_tag 'shtukat' %><br>
+  Наружная отделка: Сайдинг <%= check_box_tag 'saiding' %>, БлокХаус <%= check_box_tag 'blockhaus' %> <br> Штукатурка <%= check_box_tag 'shtukat' %> (
+  Цвет фсветлый <%= check_box_tag 'koroedsvetlyi' %>, Цвет яркий <%= check_box_tag 'koroedarkii' %>)<br>
   Внутренняя отделка: Вагонка <%= check_box_tag 'vagonka' %>, Гипсокартон <%= check_box_tag 'gips' %><br>
-  Утепление <%= check_box_tag 'utiplenie' %> (только при каркасном типе стен!!!)<br><br>
+  Утепление <%= check_box_tag 'utiplenie' %> (только при каркасном типе стен!!!)<br>
+  Обшивка стен OSB с внутренней стороны <%= check_box_tag 'osbstenvnutri'%><br><br>
   
   <span class="caption">Внутренние перегородки</span><br>
   Площадь <%= number_field_tag 'plvnper'%> м<sup>2</sup><br>
   Тип стен: СИП120 <%= check_box_tag 'sip120' %>, Каркас90 <%= check_box_tag 'karkas90' %><br>
   Отделка: Вагонка <%= check_box_tag 'vagonkaperegorodka' %>, Гипсокартон <%= check_box_tag 'gipsperegorodka' %><br>
-  Утепление <%= check_box_tag 'utiplenie100' %> (только при каркасном типе стен!!!)<br><br>
+  Утепление <%= check_box_tag 'utiplenie100' %> (только при каркасном типе стен!!!)<br>
+  Обшивка внутренних перегородок OSB с двух сторон <%= check_box_tag 'osbperegorodok2'%><br>
+  Обшивка внутренних перегородок OSB с одной стороны <%= check_box_tag 'osbperegorodok1'%><br><br>
   
   <div><span class="caption">Потолки</span><br>
   Площадь <%= number_field_tag 'plpot' %> м<sup>2</sup><br>
@@ -31,7 +37,11 @@
   <span class="caption">Кровля</span><br>
   Площадь <%= number_field_tag 'plkrov' %> м<sup>2</sup><br>
   Тип кровли: Битумная <%= check_box_tag 'bitumkrov' %>, Металлочерепица <%= check_box_tag 'metkrov' %><br>
+  Карнизная подшивка <%= number_field_tag 'karniznaiapodshivka'%> м.пог.<br>
   Утепление <%= check_box_tag 'utipleniekrov' %><br><br>
+  <span class="caption">Водосточная система</span><br>
+  Горизонтальная <%= number_field_tag 'vodostokkrovlia'%> м.<br>
+  Вертикальная <%= number_field_tag 'vodostokvysota'%> м<br><br>
   
   <span class="caption">Инженерия</span><br>
   Электрика <%= check_box_tag 'elektrik' %><br>
@@ -42,6 +52,10 @@
   <span class="caption">Проемы</span><br>
   Входная дверь <%= check_box_tag 'dver' %><br>
   Окна, площадь <%= number_field_tag 'plokna'%> м<sup>2</sup><br>
+  Подоконники <%= number_field_tag 'podokonniki'%> м.пог.<br>
+  Москитная сетка <%= number_field_tag 'moskitka'%> м<sup>2</sup><br>
+  Отливы под подоконник <%= number_field_tag 'otliv'%> шт.<br>
+  Межкомнатные двери (только установка) <%= number_field_tag 'mezhkom'%> к-во<br>
   <br>
   
   
