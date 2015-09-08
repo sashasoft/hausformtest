@@ -165,6 +165,11 @@ class BaumsController < ApplicationController
       @sum = @sum + temp.price * params[:plsten].to_f
       @hh.push({"name" => temp.name, "value" => temp.price * params[:plpot].to_f})
       end
+      if params[:lakpotolok].to_f > 0
+        temp = Baum.find_by(label: :lakpotolok)
+        @sum = @sum + temp.price * params[:plpot].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:plpot].to_f})
+      end
     end
     
     
@@ -184,6 +189,11 @@ class BaumsController < ApplicationController
         temp = Baum.find_by(label: :utiplenieper)
         @sum = @sum + temp.price * params[:plper].to_f
         @hh.push({"name" => temp.name, "value" => temp.price * params[:plper].to_f})
+      end
+      if params[:lakpol].to_f > 0
+        temp = Baum.find_by(label: :lakpol)
+        @sum = @sum + temp.price * params[:plper].to_f
+        @hh.push({"name" => temp.name, "value" => temp.price*params[:plper].to_f})
       end
     end
     
@@ -234,18 +244,18 @@ class BaumsController < ApplicationController
       @sum = @sum + temp.price * params[:okna].to_f
       @hh.push({"name" => temp.name, "value" => temp.price*params[:okna].to_f})
     end
-    if params[:moskitka].to_f > 0
-      temp = Baum.find_by(label: :moskitka)
-      @sum = @sum + temp.price * params[:moskitka].to_f
-      @hh.push({"name" => temp.name, "value" => temp.price*params[:moskitka].to_f})
-    end
-    if params[:dveri].to_f > 0
-      temp = Baum.find_by(label: :dveri)
-      @sum = @sum + temp.price * params[:dveri].to_f
-      @hh.push({"name" => temp.name, "value" => temp.price*params[:dveri].to_f})
-    end
-    
-    if params[:otmostka800].to_f > 0
+#    if params[:moskitka].to_f > 0
+#      temp = Baum.find_by(label: :moskitka)
+#      @sum = @sum + temp.price * params[:moskitka].to_f
+#      @hh.push({"name" => temp.name, "value" => temp.price*params[:moskitka].to_f})
+#    end
+#    if params[:dveri].to_f > 0
+#     temp = Baum.find_by(label: :dveri)
+#      @sum = @sum + temp.price * params[:dveri].to_f
+#      @hh.push({"name" => temp.name, "value" => temp.price*params[:dveri].to_f})
+#    end
+#    
+   if params[:otmostka800].to_f > 0
       temp = Baum.find_by(label: :otmostka800)
       @sum = @sum + temp.price.to_f
       @hh.push({"name" => temp.name, "value" => temp.price*params[:otmostka800].to_f})
@@ -256,24 +266,24 @@ class BaumsController < ApplicationController
       @hh.push({"name" => temp.name, "value" => temp.price*params[:otmostka1000].to_f})
     end
     
-    if params[:podokonniki].to_f > 0
-      temp = Baum.find_by(label: :podokonniki)
-      @sum = @sum + temp.price.to_f
-      @hh.push({"name" => temp.name, "value" => temp.price.to_f*params[:podokonniki].to_f})
-    end
-    
-    if params[:moskitka2].to_f > 0
-      temp = Baum.find_by(label: :moskitka2)
-      @sum = @sum + temp.price * params[:moskitka2].to_f
-      @hh.push({"name" => temp.name, "value" => temp.price*params[:moskitka2].to_f})
-    end
-    
-    
-    if params[:otliv].to_f > 0
-      temp = Baum.find_by(label: :otliv)
-      @sum = @sum + temp.price * params[:otliv].to_f
-      @hh.push({"name" => temp.name, "value" => temp.price*params[:otliv].to_f})
-    end
+#    if params[:podokonniki].to_f > 0
+ #     temp = Baum.find_by(label: :podokonniki)
+  #    @sum = @sum + temp.price.to_f
+   #   @hh.push({"name" => temp.name, "value" => temp.price.to_f*params[:podokonniki].to_f})
+#    end
+ #   
+  #  if params[:moskitka2].to_f > 0
+   #   temp = Baum.find_by(label: :moskitka2)
+    #  @sum = @sum + temp.price * params[:moskitka2].to_f
+     # @hh.push({"name" => temp.name, "value" => temp.price*params[:moskitka2].to_f})
+#    end
+ #   
+  #  
+   # if params[:otliv].to_f > 0
+    #  temp = Baum.find_by(label: :otliv)
+     # @sum = @sum + temp.price * params[:otliv].to_f
+      #@hh.push({"name" => temp.name, "value" => temp.price*params[:otliv].to_f})
+#    end
     
     if params[:stupenki].to_f > 0
       temp = Baum.find_by(label: :stupenki)
@@ -312,16 +322,8 @@ class BaumsController < ApplicationController
         @hh.push({"name" => temp.name, "value" => temp.price*params[:mezhkom].to_f})
     end
     
-    if params[:lakpol].to_f > 0
-        temp = Baum.find_by(label: :lakpol)
-        @sum = @sum + temp.price * params[:lakpol].to_f
-        @hh.push({"name" => temp.name, "value" => temp.price*params[:lakpol].to_f})
-    end
-    if params[:lakpotolok].to_f > 0
-        temp = Baum.find_by(label: :lakpotolok)
-        @sum = @sum + temp.price * params[:lakpotolok].to_f
-        @hh.push({"name" => temp.name, "value" => temp.price*params[:lakpotolok].to_f})
-    end
+    
+    
     
     if params[:lestnica].to_f > 0
       if params[:v1]
