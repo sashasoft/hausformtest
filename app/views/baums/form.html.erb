@@ -4,7 +4,9 @@
 <%= form_tag("sum", method: :get, class: "form-horizontal", role: "form") do %>
   Архитектурный проект <%= check_box_tag 'archproject' %><br><br>
   <span class="caption">Фундамент</span><br>
-  Площадь <%= number_field_tag 'plfund' %> м<sup>2</sup><br><br>
+  Площадь <%= number_field_tag 'plfund' %> м<sup>2</sup><br>
+  Фундамент 1200 мм. <%= check_box_tag 'fundament1200' %><br>
+  Фундамент 1400 мм. <%= check_box_tag 'fundament1400' %><br><br>
   
   <span class="caption">Стены</span><br>
   Площадь <%= number_field_tag 'plsten' %> м<sup>2</sup><br><br>
@@ -21,23 +23,30 @@
   
   Профилированный <%= check_box_tag 'profil' %><br>
   Толщина: 150 <%= check_box_tag 'profil150' %>, 180 <%= check_box_tag 'profil180' %>,
-           200 <%= check_box_tag 'profil200' %><br><br>
+           200 <%= check_box_tag 'profil200' %><br>
+           Сухой лес <%= check_box_tag 'suhoiles' %><br><br>
            
   <span class="caption">Покраска</span> <%= check_box_tag 'pokraska' %><br><br>
   
   <span class="caption">Потолки</span><br>
   Площадь <%= number_field_tag 'plpot' %> м<sup>2</sup><br>
-  Отделка потолка: Вагонка <%= check_box_tag 'vagonka' %><br><br>
+  Отделка потолка: Вагонка <%= check_box_tag 'vagonka' %><br>
+  Лакировка потолочной вагонки <%= check_box_tag 'lakpotolok'%><br><br>
   
   <span class="caption">Перекрытие</span><br>
   Площадь <%= number_field_tag 'plper' %> м<sup>2</sup><br>
   Отделка: Доска(сосна) <%= check_box_tag 'doskasosna' %><br>
+  Лакировка пола <%= check_box_tag 'lakpol'%><br>
   Утепление <%= check_box_tag 'utiplenieper' %><br><br>
   
   <span class="caption">Кровля</span><br>
   Площадь <%= number_field_tag 'plkrov' %> м<sup>2</sup><br>
   Тип кровли: Битумная <%= check_box_tag 'bitumkrov' %>, Металлочерепица <%= check_box_tag 'metkrov' %><br>
-  Утепление <%= check_box_tag 'utipleniekrov' %><br><br>
+  Утепление <%= check_box_tag 'utipleniekrov' %><br>
+  Карнизная подшивка <%= number_field_tag 'karniz'%> м.пог.<br>
+ <span class="caption">Водосточная система</span><br>
+  Горизонтальная <%= number_field_tag 'perimetrkrovli'%> м. пог.<br>
+  Вертикальная <%= number_field_tag 'vysotadoma'%> м. пог.<br><br>
   
   <span class="caption">Акционная наценка</span> <%= check_box_tag 'akcionka' %><br>
   <span class="caption">Региональный проект</span> <%= check_box_tag 'regional' %><br><br>
