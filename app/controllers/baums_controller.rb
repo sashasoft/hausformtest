@@ -78,12 +78,13 @@ class BaumsController < ApplicationController
     
     #steny
     if params[:plsten].to_f > 0
-      if params[:dikii]
-        if params[:suhoiles].to_f > 0
+      if params[:suhoiles].to_f > 0
           k = Baum.find_by(label: :suhoiles).price.to_f
         else
           k = 1
         end
+      if params[:dikii]
+        
         if params[:dikii200]
           temp = Baum.find_by(label: :dikii200)
           @sum = @sum + temp.price * params[:plsten].to_f * k
