@@ -174,6 +174,7 @@ class ElementsController < ApplicationController
     #perekrytie
     if params[:plper].to_f > 0
       temp = Element.find_by(label: :perekosb)
+      sum = temp.price * params[:plper].to_f
       @sum = @sum + temp.price * params[:plper].to_f
       @hh.push({"name" => temp.name, "value" => temp.price * params[:plper].to_f})
       
@@ -185,8 +186,8 @@ class ElementsController < ApplicationController
         @hh.push({"name" => temp2.name, "value" => temp2.price.to_f})
       elsif params[:polovadoska].to_f > 0
             temp = Element.find_by(label: :polovadoska)
-            @sum = @sum + temp.price * params[:plper].to_f
-            @hh.push({"name" => temp.name, "value" => temp.price*params[:polovadoska].to_f})
+            @sum = @sum + sum * temp.price
+            @hh.push({"name" => temp.name, "value" => sum * temp.price - sum})
           elsif params[:fermaperekrytia].to_f > 0 
                 temp = Element.find_by(label: :fermaperekrytia)
                 @sum = @sum + temp.price
