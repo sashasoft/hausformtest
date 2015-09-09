@@ -164,7 +164,12 @@ class KarkasdomsController < ApplicationController
           @sum = @sum + temp.price * params[:plvnper].to_f
           @hh.push({"name" => temp.name, "value" => temp.price*params[:plvnper].to_f})
       end
-    end
+    endsey
+    
+    
+    
+    
+    
     
     
     #potolok
@@ -365,7 +370,8 @@ class KarkasdomsController < ApplicationController
       
     end
   end
-
+  end
+  
   
   
   
