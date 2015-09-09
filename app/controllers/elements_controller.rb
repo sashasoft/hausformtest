@@ -186,11 +186,11 @@ class ElementsController < ApplicationController
         @hh.push({"name" => temp2.name, "value" => sum * temp2.price - sum})
       elsif params[:polovadoska].to_f > 0
             temp = Element.find_by(label: :polovadoska)
-            @sum = @sum + sum * temp.price
+            @sum = @sum * temp.price
             @hh.push({"name" => temp.name, "value" => sum * temp.price - sum})
           elsif params[:fermaperekrytia].to_f > 0 
                 temp = Element.find_by(label: :fermaperekrytia)
-                @sum = @sum + sum *temp.price
+                @sum = @sum * temp.price
                 @hh.push({"name" => temp.name, "value" => sum * temp.price - sum})
               end
       if params[:utiplenieper]
